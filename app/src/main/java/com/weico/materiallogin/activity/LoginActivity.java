@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import android.content.Intent;
 import android.view.View;
@@ -25,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final int REQUEST_SIGNUP = 0;
     private User mUser;
 
-    @Bind(R.id.input_email) EditText _emailText;
+    @Bind(R.id.input_name) EditText _nameText;
     @Bind(R.id.input_password) EditText _passwordText;
     @Bind(R.id.btn_login) Button _loginButton;
     @Bind(R.id.link_signup) TextView _signupLink;
@@ -66,11 +65,11 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
-        String email = _emailText.getText().toString();
+        String name = _nameText.getText().toString();
         String password = _passwordText.getText().toString();
 
         mUser=new User();
-        mUser.setUsername(email);
+        mUser.setUsername(name);
         mUser.setPassword(password);
 
         mUser.login(LoginActivity.this, new SaveListener() {
